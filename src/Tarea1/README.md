@@ -93,3 +93,25 @@ Las propiedades se muestran ordenadas alfabéticamente.
 ![propiedades.png](capturas/propiedades.png)
 
 ---
+
+## 6. PID y PPID
+
+Esto se muestra por la consola de la terminal al ejecutar el código:
+
+![ejecuciondesdeterminal.png](capturas/ejecuciondesdeterminal.png)
+
+Mientras el programa está esperando INTRO, se busca desde otra terminal con:
+
+```bash
+ps -ef | grep InformeSistema
+```
+
+El **PID** identifica al proceso y el **PPID** identifica al proceso padre.
+
+![PIDyPPIDterminal.png](capturas/PIDyPPIDterminal.png)
+
+También se ejecuta desde el IDE para comparar el PPID.
+
+![pidyppid.png](capturas/pidyppid.png)
+
+---
