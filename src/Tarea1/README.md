@@ -37,3 +37,27 @@ Runtime runtime = Runtime.getRuntime();
 ![ejecucion.png](capturas/ejecucion.png)
 
 ---
+
+## 3. Memoria
+
+Se muestra:
+
+* Memoria total.
+* Memoria libre.
+* Memoria utilizada.
+* Memoria máxima.
+* Porcentaje de memoria utilizada.
+
+![memoria_antes.png](capturas/memoria_antes.png)
+
+Después se reserva aproximadamente **64 MiB**:
+
+```java
+long[] reservado = new long[8 * 1024 * 1024];
+```
+
+Se vuelve a medir la memoria y se calcula el incremento.
+
+![memoria_despues.png](capturas/memoria_despues.png)
+
+---
