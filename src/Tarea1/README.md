@@ -75,3 +75,21 @@ user.home/psp/informe.txt
 ![sistema.png](capturas/sistema.png)
 
 ---
+
+## 5. Propiedades del sistema
+
+El programa muestra las propiedades que empiezan por:
+
+```text
+os.
+user.
+java.version
+```
+
+Si se pasan otros prefijos como argumentos, utiliza esos prefijos.
+
+Las propiedades se muestran ordenadas alfabéticamente.
+
+![propiedades.png](capturas/propiedades.png)
+
+---
