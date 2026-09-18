@@ -115,3 +115,19 @@ También se ejecuta desde el IDE para comparar el PPID.
 ![pidyppid.png](capturas/pidyppid.png)
 
 ---
+
+## 7. Memoria con -Xmx128m
+
+Se ejecuta:
+
+```bash
+java -Xmx128m InformeSistema
+```
+
+`-Xmx128m` limita la memoria máxima del heap a aproximadamente 128 MiB.
+
+Se comparan los resultados con una ejecución normal.
+
+![-Xmx128m.png](capturas/-Xmx128m.png)
+
+---
