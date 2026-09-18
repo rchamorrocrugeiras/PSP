@@ -21,8 +21,17 @@ Runtime runtime = Runtime.getRuntime();
 int procesadores = runtime.availableProcessors();
 ```
 
-### Captura
+```azure
+Runtime runtime = Runtime.getRuntime();
 
-![ejecucion1.png](capturas/ejecucion1.png)
+        int procesadores = runtime.availableProcessors();
+
+        System.out.println("PROCESADORES");
+        System.out.println("==============================");
+        System.out.println("Disponibles JVM: " + procesadores);
+```
+### Muestra:
+
+![ejecucion.png](capturas/ejecucion.png)
 
 ---
