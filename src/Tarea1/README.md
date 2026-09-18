@@ -21,7 +21,9 @@ Runtime runtime = Runtime.getRuntime();
 int procesadores = runtime.availableProcessors();
 ```
 
-```azure
+Quedaría así:
+
+```java
 Runtime runtime = Runtime.getRuntime();
 
         int procesadores = runtime.availableProcessors();
