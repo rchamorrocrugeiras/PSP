@@ -131,3 +131,37 @@ Se comparan los resultados con una ejecución normal.
 ![-Xmx128m.png](capturas/-Xmx128m.png)
 
 ---
+
+## 8. Programación concurrente, paralela y distribuida
+
+### a) Servidor web con 500 peticiones
+
+Se puede utilizar programación **concurrente y paralela** para atender varias peticiones.
+
+**Inconveniente:** puede aumentar el consumo de memoria.
+
+### b) Renderizar una película
+
+Se puede utilizar programación **paralela y distribuida**, repartiendo los fotogramas entre varios núcleos u ordenadores.
+
+**Inconveniente:** hay que coordinar los diferentes equipos.
+
+### c) Descargar un archivo mientras se navega
+
+Se utiliza programación **concurrente**, realizando la descarga en segundo plano.
+
+**Inconveniente:** hay que controlar correctamente la comunicación entre la descarga y la interfaz.
+
+### d) Cálculo que no cabe en la RAM
+
+Se puede utilizar programación **distribuida**, repartiendo los datos entre varios ordenadores.
+
+**Inconveniente:** la comunicación entre ordenadores puede ser lenta.
+
+---
+
+## 9. Conclusión
+
+Con esta práctica he aprendido a consultar información de la JVM, controlar el uso de memoria, obtener propiedades del sistema y localizar procesos mediante PID y PPID.
+
+También he visto las diferencias entre programación concurrente, paralela y distribuida.
