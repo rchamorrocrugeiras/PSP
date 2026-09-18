@@ -1,5 +1,9 @@
 package Tarea1;
 
+import java.util.Properties;
+import java.util.Scanner;
+import java.util.TreeMap;
+
 public class InformeSistema {
 
     public static void main(String[] args) {
@@ -60,9 +64,26 @@ public class InformeSistema {
         System.out.println("Máxima (-Xmx): " + maximoDespuesMiB + " MiB");
 
         long incremento = usoDespues - usoAntes;
-
         long incrementoMiB = incremento / mib;
 
-        System.out.println("Incremento en uso: " + incrementoMiB + " MiB");
+        System.out.println("Incremento en uso: " + incrementoMiB
+                + " MiB (el array sigue en memoria: reservado[0] = "
+                + reservado[0] + ")");
+
+        System.out.println();
+        System.out.println("SISTEMA");
+        System.out.println("==============================");
+
+        String sistema = System.getProperty("os.name");
+        String separador = System.getProperty("file.separator");
+        String directorioPersonal = System.getProperty("user.home");
+
+        String ruta = directorioPersonal
+                + separador + "psp"
+                + separador + "informe.txt";
+
+        System.out.println("os.name: " + sistema);
+        System.out.println("file.separator: \"" + separador + "\"");
+        System.out.println("Ruta construida con las propiedades: " + ruta);
     }
 }
