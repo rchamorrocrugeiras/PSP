@@ -88,7 +88,7 @@ public class InformeSistema {
 
         System.out.println();
         System.out.println("PROPIEDADES QUE EMPIEZAN POR os., user., java.version");
-        System.out.println("==================================================");
+        System.out.println("==============================");
 
         String[] prefijos;
 
@@ -121,5 +121,16 @@ public class InformeSistema {
             String nombre = nombresSeleccionados[i];
             System.out.println(nombre + " = " + seleccionadas.get(nombre));
         }
+
+        System.out.println();
+        System.out.println("PROCESO EN ESPERA");
+        System.out.println("==============================");
+        System.out.println("Buscame desde otra terminal con: ps -ef | grep InformeSistema");
+        System.out.println("Pulsa INTRO para terminar...");
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+
+        System.out.println("Fin del programa.");
     }
 }
