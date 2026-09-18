@@ -61,3 +61,17 @@ Se vuelve a medir la memoria y se calcula el incremento.
 ![memoria_despues.png](capturas/memoria_despues.png)
 
 ---
+
+## 4. Sistema operativo y ruta
+
+Se utilizan las propiedades del sistema para obtener el sistema operativo, el separador de archivos y el directorio personal.
+
+La ruta de `informe.txt` se construye de forma multiplataforma:
+
+```text
+user.home/psp/informe.txt
+```
+
+![sistema.png](capturas/sistema.png)
+
+---
