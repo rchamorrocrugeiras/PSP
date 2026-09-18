@@ -85,5 +85,41 @@ public class InformeSistema {
         System.out.println("os.name: " + sistema);
         System.out.println("file.separator: \"" + separador + "\"");
         System.out.println("Ruta construida con las propiedades: " + ruta);
+
+        System.out.println();
+        System.out.println("PROPIEDADES QUE EMPIEZAN POR os., user., java.version");
+        System.out.println("==================================================");
+
+        String[] prefijos;
+
+        if (args.length == 0) {
+            prefijos = new String[]{"os.", "user.", "java.version"};
+        } else {
+            prefijos = args;
+        }
+
+        Properties propiedades = System.getProperties();
+
+        TreeMap<String, String> seleccionadas = new TreeMap<>();
+
+        String[] nombres = propiedades.stringPropertyNames().toArray(new String[0]);
+
+        for (int i = 0; i < nombres.length; i++) {
+            String nombre = nombres[i];
+            for (int j = 0; j < prefijos.length; j++) {
+                String prefijo = prefijos[j];
+                if (nombre.startsWith(prefijo)) {
+                    seleccionadas.put(nombre, propiedades.getProperty(nombre));
+                }
+            }
+        }
+
+        String[] nombresSeleccionados =
+                seleccionadas.keySet().toArray(new String[0]);
+
+        for (int i = 0; i < nombresSeleccionados.length; i++) {
+            String nombre = nombresSeleccionados[i];
+            System.out.println(nombre + " = " + seleccionadas.get(nombre));
+        }
     }
 }
