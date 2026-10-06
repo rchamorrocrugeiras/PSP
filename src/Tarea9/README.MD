@@ -24,6 +24,11 @@ El programa está formado por:
 * `Descarga.java`: simula la descarga de un archivo mediante un hilo.
 * `GestorDescargas.java`: contiene el método `main`, crea y ejecuta las descargas y muestra el informe final.
 
+Además, al hacer los diferentes niveles hay que implementar las siguientes clases:
+
+* `Monitor.java`: controla las descargas que están en curso y cada 500ms muestra cuantas siguen activas.
+* `Instalador.java`: espera a que terminen `meditacion.mp4` y `mantras.mp3` para poder realizar la instalación, mientras las demás descargas pueden continuar.
+
 ## 3. Funcionamiento de la clase Descarga
 
 La clase `Descarga` hereda de `Thread`.
@@ -36,4 +41,4 @@ Se utiliza la constante:
 AJUSTE_BLOQUE = 1
 ```
 
-El funcionamiento de la descarga se completará en los siguientes apartados de la práctica.
+
