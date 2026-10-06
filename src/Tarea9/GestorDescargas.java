@@ -3,7 +3,6 @@ package Tarea9;
 public class GestorDescargas {
 
     public static void main(String[] args) {
-
         String[] archivos = {
                 "cuarzos.png",
                 "meditacion.mp4",
@@ -20,20 +19,37 @@ public class GestorDescargas {
 
         long inicio = System.currentTimeMillis();
 
+        Thread monitor = new Thread(new Monitor(descargas));
+        Thread instalador = new Thread(
+                new Instalador(descargas[1], descargas[2]));
+
         for (Descarga descarga : descargas) {
             descarga.start();
         }
 
+        monitor.start();
+        instalador.start();
+
         long acumuladoSerie = 0;
 
-        for (Descarga descarga : descargas) {
-            try {
-                descarga.join();
-            } catch (InterruptedException e) {
-                return;
+        try {
+            descargas[1].join(3000);
+
+            if (descargas[1].isAlive()) {
+                System.out.println(
+                        "Aviso: meditacion.mp4 sigue descargándose después de 3 segundos.");
             }
 
-            acumuladoSerie += descarga.getTiempoDescarga();
+            for (Descarga descarga : descargas) {
+                descarga.join();
+                acumuladoSerie += descarga.getTiempoDescarga();
+            }
+
+            monitor.join();
+            instalador.join();
+
+        } catch (InterruptedException e) {
+            return;
         }
 
         long tiempoReal = System.currentTimeMillis() - inicio;
