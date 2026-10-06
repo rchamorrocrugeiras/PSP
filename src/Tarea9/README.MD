@@ -1,4 +1,4 @@
-# Tarea 09 - Descargas Cuánticas
+# Tarea 09 - Gestor de descargas
 
 **Módulo:** Programación de servizos e procesos  
 **Curso:** CFGS DAM 2 - 2026/2027  
