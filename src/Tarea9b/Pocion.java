@@ -1,6 +1,5 @@
 package Tarea9b;
 
-import java.sql.SQLOutput;
 import java.util.Random;
 
 public class Pocion implements Runnable {
@@ -31,6 +30,11 @@ public class Pocion implements Runnable {
                 return;
             }
         }
+
+        long fin = System.currentTimeMillis(); //Guarda el instante en el que termina la preración
+        tiempoTotal = fin - inicio; //Se calcula el tiempo total transcurrido
+
+        System.out.println(Thread.currentThread().getName() + " ha terminado la poción " + nombre + " en " + tiempoTotal + " ms"); //Obtiene el nombre del hilo, indica cúal es la poción que ha terminado y muestra el tiempo empleado en miliosegundos
     }
 
     public String getNombre() {
