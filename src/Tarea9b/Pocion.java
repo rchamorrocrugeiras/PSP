@@ -24,17 +24,16 @@ public class Pocion implements Runnable {
         for (int i = 1; i <= fases; i++) {
             try {
                 Thread.sleep(duracionFase);
-                System.out.println(Thread.currentThread().getName() + " preparando " + nombre + ": fase " + i + "/" + fases); //Obtiene el nombre del hilo actual, añade el nombre de la pocion y muestra la fase actual y el total de fases
+                System.out.println("[" + nombre + "] fase " + i + "/" + fases); //Muestra el nombre de la poción, la fase actual y el total de fases.
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt(); //Interrumpe el hilo actual
                 return;
             }
         }
 
-        long fin = System.currentTimeMillis(); //Guarda el instante en el que termina la preración
-        tiempoTotal = fin - inicio; //Se calcula el tiempo total transcurrido
+        tiempoTotal = System.currentTimeMillis() - inicio; //Se calcula el tiempo total transcurrido
 
-        System.out.println(Thread.currentThread().getName() + " ha terminado la poción " + nombre + " en " + tiempoTotal + " ms"); //Obtiene el nombre del hilo, indica cúal es la poción que ha terminado y muestra el tiempo empleado en miliosegundos
+        System.out.println("[" + nombre + "] lista en " + tiempoTotal + " ms"); //Muestra el nombre de la poción y el tiempo total que ha tardado.
     }
 
     public String getNombre() {
