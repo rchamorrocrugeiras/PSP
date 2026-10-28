@@ -10,7 +10,6 @@ public class CadenaMontaje {
             this.dependencias = dependencias;
         }
 
-        @Override
         public void run() {
             try {
                 // Espera a las estaciones de las que depende (si las hay)

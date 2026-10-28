@@ -29,7 +29,6 @@ public class Estadio {
             return entradas;
         }
 
-        @Override
         public void run() {
             entradas = ThreadLocalRandom.current().nextInt(500, 1001);
             marcador.sumar(entradas);
