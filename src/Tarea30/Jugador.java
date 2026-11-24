@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class Jugador extends Thread {
     private Socket cliente;
+    static int record = 999;
+    static String nombreRecord = "";
 
     public Jugador(Socket cliente) {
         this.cliente = cliente;
@@ -45,6 +47,11 @@ public class Jugador extends Thread {
 
                 if (mensaje.equalsIgnoreCase("RECORD")) {
 
+                    if (record == 999) {
+                        salida.println("OK Todavía no hay récord");
+                    } else {
+                        salida.println("OK Récord: " + record + " intentos (" + nombreRecord + ")");
+                    }
                 } else {
                     try {
                         int numero = Integer.parseInt(mensaje);
