@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Random;
 
 public class Jugador extends Thread {
     private Socket cliente;
@@ -29,6 +30,44 @@ public class Jugador extends Thread {
             String nombre = mensaje.substring(5);
 
             salida.println("OK Hola, " + nombre);
+
+            Random random = new Random();
+            int numeroSecreto = random.nextInt(100) + 1;
+            int intentos = 0;
+
+            while ((mensaje = entrada.readLine()) != null) {
+                mensaje = mensaje.trim();
+
+                if (mensaje.equalsIgnoreCase("ADIOS")) {
+                    salida.println("OK Hasta luego");
+                    break;
+                }
+
+                if (mensaje.equalsIgnoreCase("RECORD")) {
+
+                } else {
+                    try {
+                        int numero = Integer.parseInt(mensaje);
+
+                        if (numero < 1 || numero > 100) {
+                            salida.println("ERR Comando no válido");
+                        } else {
+                            intentos++;
+
+                            if (numero < numeroSecreto) {
+                                salida.println("MAYOR");
+                            } else if (numero > numeroSecreto) {
+                                salida.println("MENOR");
+                            } else {
+                                salida.println("ACIERTO en " + intentos + " intentos");
+                                break;
+                            }
+                        }
+                    } catch (NumberFormatException e) {
+                        salida.println("ERR Comando no válido");
+                    }
+                }
+            }
         } catch (IOException e) {
             System.out.println("Error con el jugador.");
         }
