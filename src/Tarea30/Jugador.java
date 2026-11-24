@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Jugador extends Thread {
     private Socket cliente;
+
     static int record = 999;
     static String nombreRecord = "";
 
@@ -18,18 +19,20 @@ public class Jugador extends Thread {
 
     public void run() {
         try {
-            BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+            BufferedReader entrada = new BufferedReader(
+                    new InputStreamReader(cliente.getInputStream()));
 
-            PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true);
+            PrintWriter salida = new PrintWriter(
+                    cliente.getOutputStream(), true);
 
             String mensaje = entrada.readLine();
 
             if (mensaje == null || !mensaje.startsWith("HOLA ")) {
-                salida.println("ERR Identificate con HOLA");
+                salida.println("ERR Identifícate con HOLA");
                 return;
             }
 
-            String nombre = mensaje.substring(5);
+            String nombre = mensaje.substring(5).trim();
 
             salida.println("OK Hola, " + nombre);
 
@@ -46,12 +49,15 @@ public class Jugador extends Thread {
                 }
 
                 if (mensaje.equalsIgnoreCase("RECORD")) {
-
-                    if (record == 999) {
-                        salida.println("OK Todavía no hay récord");
-                    } else {
-                        salida.println("OK Récord: " + record + " intentos (" + nombreRecord + ")");
+                    synchronized (Jugador.class) {
+                        if (record == 999) {
+                            salida.println("OK Todavía no hay récord");
+                        } else {
+                            salida.println("OK Récord: " + record +
+                                    " intentos (" + nombreRecord + ")");
+                        }
                     }
+
                 } else {
                     try {
                         int numero = Integer.parseInt(mensaje);
@@ -78,13 +84,21 @@ public class Jugador extends Thread {
                                 break;
                             }
                         }
+
                     } catch (NumberFormatException e) {
                         salida.println("ERR Comando no válido");
                     }
                 }
             }
+
         } catch (IOException e) {
-            System.out.println("Error con el jugador.");
+
+        } finally {
+            try {
+                cliente.close();
+            } catch (IOException e) {
+
+            }
         }
     }
 }
