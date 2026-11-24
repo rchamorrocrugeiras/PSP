@@ -67,6 +67,14 @@ public class Jugador extends Thread {
                                 salida.println("MENOR");
                             } else {
                                 salida.println("ACIERTO en " + intentos + " intentos");
+
+                                synchronized (Jugador.class) {
+                                    if (intentos < record) {
+                                        record = intentos;
+                                        nombreRecord = nombre;
+                                    }
+                                }
+
                                 break;
                             }
                         }
